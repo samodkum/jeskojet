@@ -40,6 +40,19 @@ export default function ServicesMarquee() {
         let xPercent = 0;
         let direction = -1; // -1 = move left, 1 = move right
 
+        // Track scroll velocity consistently
+        const velocityTracker = ScrollTrigger.create({
+            trigger: document.documentElement,
+            start: 0,
+            end: "max",
+            onUpdate: (self) => {
+                // Determine direction based on scroll direction
+                // self.direction: 1 = down/right, -1 = up/left
+                // We can use this if we want to change marquee direction on scroll
+                // But for now, we just want the speed boost
+            }
+        });
+
         // The logic to handle the animation loop
         const animate = () => {
             if (xPercent <= -100) {
@@ -59,7 +72,8 @@ export default function ServicesMarquee() {
 
             // Add Scroll Velocity to the speed
             // We clamp it so it doesn't go crazy fast
-            const scrollVelocity = ScrollTrigger.velocity;
+            // velocityTracker is updated by the ScrollTrigger below
+            const scrollVelocity = velocityTracker.getVelocity();
             // If scrolling fast, increase speed factor
             const velocityFactor = scrollVelocity / 500;
 
@@ -90,6 +104,7 @@ export default function ServicesMarquee() {
 
         return () => {
             cancelAnimationFrame(rafId);
+            velocityTracker.kill();
         };
 
     }, []);
