@@ -5,6 +5,7 @@ import HeroScroll from '@/components/home/HeroScroll';
 import PlaneMorph from '@/components/home/PlaneMorph';
 import GlobeFooter from '@/components/home/GlobeFooter';
 import Loader from '@/components/ui/Loader';
+import ServicesScroll from '@/components/home/ServicesScroll';
 import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
@@ -35,36 +36,8 @@ export default function Home() {
       {/* 1. Hero Clouds Sequence */}
       <HeroScroll onLoadProgress={setHeroProgress} />
 
-      {/* 2. Transition/Editorial Content */}
-      <section className="py-32 px-6 md:px-20 max-w-7xl mx-auto border-t border-white/10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <h2 className="text-4xl md:text-5xl font-light leading-tight">
-            Every flight is designed around your comfort, time, and ambition.
-          </h2>
-          <div className="text-neutral-400 text-lg space-y-6">
-            <p>
-              We focus on what truly matters, while we take care of everything else.
-              From international executives to global industries, our clients trust
-              us to deliver on time, every time.
-            </p>
-            <p className="text-white font-medium">Direct Access to Private Travel.</p>
-          </div>
-        </div>
-
-        {/* New Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
-          {[
-            { title: "Charter", desc: "Global fleet access with as little as 4 hours notice." },
-            { title: "Management", desc: "Comprehensive aircraft management tailored to you." },
-            { title: "Sales", desc: "Expert guidance in aircraft acquisition and brokerage." }
-          ].map((service) => (
-            <div key={service.title} className="border-l border-white/20 pl-6 space-y-4">
-              <h3 className="text-2xl font-bold uppercase tracking-widest">{service.title}</h3>
-              <p className="text-neutral-500">{service.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 2. Services Scroll (Replaces Marquee) */}
+      <ServicesScroll />
 
       {/* 3. Plane Morph Sequence */}
       <PlaneMorph onLoadProgress={setPlaneProgress} />

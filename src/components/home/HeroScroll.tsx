@@ -97,12 +97,13 @@ export default function HeroScroll({ onLoadProgress }: { onLoadProgress?: (progr
                 >
                     <div className="text-right space-y-6 max-w-[30vw]">
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">Elevation</h3>
-                            <p className="text-3xl font-light tabular-nums text-white mix-blend-difference">45,000 <span className="text-sm">FT</span></p>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">Status</h3>
+                            <p className="text-3xl font-light text-white mix-blend-difference">Ready</p>
                         </div>
                         <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">Status</h3>
-                            <p className="text-3xl font-light text-white mix-blend-difference">Clear</p>
+                            <p className="text-sm font-medium text-white mix-blend-difference uppercase tracking-widest">
+                                Direct Access to <br /> Private Travel
+                            </p>
                         </div>
                     </div>
                 </motion.div>

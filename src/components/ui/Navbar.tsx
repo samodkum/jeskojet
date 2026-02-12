@@ -18,22 +18,37 @@ export default function Navbar() {
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-8 pointer-events-auto">
                 {['Fleet', 'Services', 'Membership', 'About'].map((item, i) => (
-                    <motion.a
-                        key={item}
-                        href="#"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
-                        className="relative text-sm font-medium uppercase tracking-widest group hover:text-cyan-400 transition-colors duration-300"
-                    >
-                        {item}
-                        <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-cyan-400 transition-all duration-300 group-hover:w-full" />
-                    </motion.a>
+                    item === 'Membership' ? (
+                        <motion.a
+                            key={item}
+                            href="/login"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
+                            className="relative text-sm font-medium uppercase tracking-widest group hover:text-cyan-400 transition-colors duration-300"
+                        >
+                            {item}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                        </motion.a>
+                    ) : (
+                        <motion.a
+                            key={item}
+                            href="#"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
+                            className="relative text-sm font-medium uppercase tracking-widest group hover:text-cyan-400 transition-colors duration-300"
+                        >
+                            {item}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                        </motion.a>
+                    )
                 ))}
             </nav>
-
-            {/* CTA */}
-            <button className="hidden md:block px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors pointer-events-auto">
+            <button
+                onClick={() => window.location.href = 'mailto:info@jeskojets.com'}
+                className="hidden md:block px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors pointer-events-auto"
+            >
                 Inquire
             </button>
 

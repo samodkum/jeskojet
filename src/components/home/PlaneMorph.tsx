@@ -77,7 +77,7 @@ export default function PlaneMorph({ onLoadProgress }: { onLoadProgress?: (progr
                     className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 >
                     <h2 className="text-white text-4xl md:text-6xl font-light tracking-[0.2em] uppercase mix-blend-difference">
-                        Engineering Art
+                        Fly in Luxury
                     </h2>
                 </motion.div>
 
@@ -86,14 +86,25 @@ export default function PlaneMorph({ onLoadProgress }: { onLoadProgress?: (progr
                     style={{ opacity: useTransform(scrollYProgress, [0.4, 0.5, 0.6], [0, 1, 0]) }}
                     className="absolute inset-0 flex items-center justify-start px-10 md:px-32 pointer-events-none"
                 >
-                    <div className="space-y-4 text-white drop-shadow-2xl">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">Specifications</h3>
-                        <div className="text-5xl md:text-7xl font-bold tabular-nums leading-none">
-                            0.92 <span className="text-2xl md:text-3xl font-normal text-neutral-300">Mach</span>
+                    <div className="space-y-6 text-white drop-shadow-2xl">
+                        <div>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">Speed</h3>
+                            <div className="text-4xl md:text-6xl font-bold tabular-nums leading-none">
+                                0.925 <span className="text-xl md:text-2xl font-normal text-neutral-300">Mach</span>
+                            </div>
                         </div>
-                        <p className="text-sm uppercase tracking-widest max-w-xs text-neutral-200 font-medium">
-                            Speed that redefines the boundaries of private aviation.
-                        </p>
+                        <div>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">Range</h3>
+                            <div className="text-4xl md:text-6xl font-bold tabular-nums leading-none">
+                                7,500 <span className="text-xl md:text-2xl font-normal text-neutral-300">nm</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">Capacity</h3>
+                            <div className="text-4xl md:text-6xl font-bold tabular-nums leading-none">
+                                19 <span className="text-xl md:text-2xl font-normal text-neutral-300">Pax</span>
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
 
@@ -104,8 +115,11 @@ export default function PlaneMorph({ onLoadProgress }: { onLoadProgress?: (progr
                 >
                     <div className="text-right space-y-2 text-white drop-shadow-2xl">
                         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-tight">
-                            Refined <br /> Power
+                            Ultra Long <br /> Range
                         </h2>
+                        <p className="text-sm uppercase tracking-widest text-neutral-300">
+                            Bespoke Interior
+                        </p>
                     </div>
                 </motion.div>
             </div>
