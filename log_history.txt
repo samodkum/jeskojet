@@ -1,0 +1,17 @@
+﻿commit a9c443e69b7f5a8051513ca89c9dd59f169aa27c
+Author: samodkum <samodkumar876628@gmail.com>
+Date:   Thu Feb 12 23:04:26 2026 +0530
+
+    fix: replace invalid ScrollTrigger.velocity usage with instance method
+
+commit f468fb9733150d68d35c5b23333ff56329b1009c
+Author: samodkum <samodkumar876628@gmail.com>
+Date:   Thu Feb 12 22:40:16 2026 +0530
+
+    Update project with new components and pages
+
+commit 7e2912e13b310f0f8efc13ce853197cf8e19eeaa
+Author: samodkum <samodkumar876628@gmail.com>
+Date:   Wed Feb 11 23:41:28 2026 +0530
+
+    Initial commit

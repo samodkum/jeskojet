@@ -1,0 +1,24 @@
+﻿On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   package-lock.json
+	modified:   package.json
+	modified:   src/components/auth/AuthForm.tsx
+	modified:   src/components/home/GlobeFooter.tsx
+	deleted:    src/components/home/ServicesMarquee.tsx
+	modified:   src/components/home/ServicesScroll.tsx
+	modified:   src/components/ui/Navbar.tsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	build_output.txt
+	git_status_output.txt
+	git_status_utf8.txt
+	src/app/api/
+	src/components/ui/ContactModal.tsx
+	src/lib/
+
+no changes added to commit (use "git add" and/or "git commit -a")

@@ -55,13 +55,18 @@ export default function ServicesScroll() {
                     const index = Math.floor(progress * SERVICES.length);
                     const safeIndex = Math.min(index, SERVICES.length - 1);
 
-                    sections.forEach((section: any, i) => {
-                        if (i === safeIndex) {
-                            gsap.to(section, { opacity: 1, scale: 1, duration: 0.5, overwrite: true });
-                        } else {
-                            gsap.to(section, { opacity: 0, scale: 0.9, duration: 0.5, overwrite: true });
-                        }
-                    });
+                    // Only animate if the index has changed (optimization)
+                    if (triggerRef.current && (triggerRef.current as any).dataset.activeIndex !== String(safeIndex)) {
+                        (triggerRef.current as any).dataset.activeIndex = String(safeIndex);
+
+                        sections.forEach((section: any, i) => {
+                            if (i === safeIndex) {
+                                gsap.to(section, { opacity: 1, scale: 1, duration: 0.5, overwrite: true });
+                            } else {
+                                gsap.to(section, { opacity: 0, scale: 0.9, duration: 0.5, overwrite: true });
+                            }
+                        });
+                    }
                 }
             });
 

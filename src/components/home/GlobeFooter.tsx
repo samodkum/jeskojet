@@ -8,8 +8,11 @@ const CITIES = [
     "Bangkok", "Los Angeles", "Marrakech", "Nice"
 ];
 
+import ContactModal from '../ui/ContactModal';
+
 export default function GlobeFooter() {
     const [activeCity, setActiveCity] = useState(0);
+    const [isContactOpen, setIsContactOpen] = useState(false);
 
     // Cycle through cities
     useEffect(() => {
@@ -88,12 +91,14 @@ export default function GlobeFooter() {
             {/* Sticky Button (Optional/Fixed) */}
             <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
                 <button
-                    onClick={() => window.location.href = 'mailto:info@jeskojets.com'}
-                    className="px-8 py-4 bg-white text-black text-lg font-medium rounded-full hover:bg-neutral-200 transition-colors"
+                    onClick={() => setIsContactOpen(true)}
+                    className="px-8 py-4 bg-white text-black text-lg font-medium rounded-full hover:bg-neutral-200 transition-colors inline-block"
                 >
                     Contact Us
                 </button>
             </div>
+
+            <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} defaultSubject="General Inquiry" />
 
         </section>
     );

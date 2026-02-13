@@ -1,0 +1,1 @@
+﻿* master a9c443e [origin/master] fix: replace invalid ScrollTrigger.velocity usage with instance method

@@ -1,8 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import ContactModal from './ContactModal';
 
 export default function Navbar() {
+    const [isContactOpen, setIsContactOpen] = useState(false);
+
     return (
         <motion.header
             initial={{ y: -100 }}
@@ -33,7 +37,7 @@ export default function Navbar() {
                     ) : (
                         <motion.a
                             key={item}
-                            href="#"
+                            href={item === 'Services' ? '/#services' : item === 'About' ? '/#about' : '#'}
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
@@ -46,11 +50,13 @@ export default function Navbar() {
                 ))}
             </nav>
             <button
-                onClick={() => window.location.href = 'mailto:info@jeskojets.com'}
+                onClick={() => setIsContactOpen(true)}
                 className="hidden md:block px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors pointer-events-auto"
             >
                 Inquire
             </button>
+
+            <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} defaultSubject="Charter Request" />
 
             {/* Mobile Menu Toggle (Simplified) */}
             <div className="md:hidden pointer-events-auto">

@@ -2,19 +2,42 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 
 export default function AuthForm() {
     const [isLogin, setIsLogin] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        // Simulate API call
-        setTimeout(() => {
+
+        try {
+            if (isLogin) {
+                const { error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password,
+                });
+                if (error) throw error;
+                router.push('/'); // Redirect to home on success
+            } else {
+                const { error } = await supabase.auth.signUp({
+                    email,
+                    password,
+                });
+                if (error) throw error;
+                alert('Check your email for the confirmation link!');
+            }
+        } catch (error: any) {
+            console.error('Authentication error:', error);
+            alert(error.message || 'Authentication failed');
+        } finally {
             setIsLoading(false);
-            alert("Authentication placeholder: Connect to Supabase here.");
-        }, 1500);
+        }
     };
 
     return (
@@ -33,16 +56,22 @@ export default function AuthForm() {
                     <label className="block text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Email</label>
                     <input
                         type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3 text-white focus:outline-none focus:border-white/50 transition-colors"
                         placeholder="name@example.com"
+                        required
                     />
                 </div>
                 <div>
                     <label className="block text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Password</label>
                     <input
                         type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-3 text-white focus:outline-none focus:border-white/50 transition-colors"
                         placeholder="••••••••"
+                        required
                     />
                 </div>
 
